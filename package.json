@@ -1,0 +1,25 @@
+{
+  "name": "mock-ui",
+  "version": "0.0.1",
+  "description": "Easy API mocking server with web interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-sight/mock-ui.git"
+  },
+  "keywords": [
+    "mock",
+    "nock",
+    "mocking",
+    "api"
+  ],
+  "author": "malahov.dmitry@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/red-sight/mock-ui/issues"
+  },
+  "homepage": "https://github.com/red-sight/mock-ui#readme"
+}
