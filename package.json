@@ -4,6 +4,7 @@
   "description": "Easy API mocking server with web interface",
   "main": "index.js",
   "scripts": {
+    "dev": "lerna run --parallel dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/red-sight/mock-ui/issues"
   },
-  "homepage": "https://github.com/red-sight/mock-ui#readme"
+  "homepage": "https://github.com/red-sight/mock-ui#readme",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }
