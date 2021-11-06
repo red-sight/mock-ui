@@ -4,8 +4,9 @@
   "description": "Easy API mocking server with web interface",
   "main": "index.js",
   "scripts": {
-    "dev": "lerna run --parallel dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "lerna run dev --stream",
+    "test": "lerna run test --parallel",
+    "start": "lerna run start --parallel"
   },
   "repository": {
     "type": "git",
