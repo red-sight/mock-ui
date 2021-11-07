@@ -4,6 +4,8 @@ import chai from "chai";
 import chaiHttp from "chai-http";
 import server from "../dist/index";
 import User from "../dist/models/user";
+import Collection from "../dist/models/collection";
+import Mock from "../dist/models/mock";
 // const server = "http://localhost:3000";
 
 const should = chai.should();
@@ -15,11 +17,20 @@ const creds = {
 };
 
 let token;
+let collectionId;
 
 describe("User auth", () => {
   before(async () => {
     await User.deleteMany({});
+    await Collection.deleteMany({});
+    await Mock.deleteMany({});
   });
+  /* 
+  after(async () => {
+    await User.deleteMany({});
+    await Collection.deleteMany({});
+    await Mock.deleteMany({});
+  }); */
 
   it("Should require initialization if admin doesn't exist", async () => {
     const res = await chai.request(server).get("/init");
@@ -60,5 +71,29 @@ describe("User auth", () => {
     const res = await chai.request(server).post("/signin").send(creds);
     should.exist(res.body.token);
     token = res.body.token;
+  });
+
+  it("Get user profile", async () => {
+    const res = await chai.request(server).get("/profile").set("token", token);
+    res.body.profile.should.have.keys("_id", "login", "role");
+  });
+
+  it("Get user collections", async () => {
+    const res = await chai
+      .request(server)
+      .get("/collections")
+      .set("token", token);
+    res.body.should.be.a("array");
+    res.body.length.should.equal(1);
+    collectionId = res.body[0]._id;
+  });
+
+  it("Get mocks by collection id", async () => {
+    const res = await chai
+      .request(server)
+      .get(`/collection/${collectionId}`)
+      .set("token", token);
+    console.log(res.status);
+    console.dir(res.body, { depth: null });
   });
 });
