@@ -1,0 +1,11 @@
+{
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+
+  "vetur.format.defaultFormatter.html": "prettyhtml",
+  "vetur.format.defaultFormatter.js": "prettier-eslint"
+}
