@@ -25,12 +25,6 @@ describe("User auth", () => {
     await Collection.deleteMany({});
     await Mock.deleteMany({});
   });
-  /* 
-  after(async () => {
-    await User.deleteMany({});
-    await Collection.deleteMany({});
-    await Mock.deleteMany({});
-  }); */
 
   it("Should require initialization if admin doesn't exist", async () => {
     const res = await chai.request(server).get("/init");
@@ -93,7 +87,6 @@ describe("User auth", () => {
       .request(server)
       .get(`/collection/${collectionId}`)
       .set("token", token);
-    console.log(res.status);
-    console.dir(res.body, { depth: null });
+    res.body.should.be.a("array");
   });
 });

@@ -1,11 +1,26 @@
-# `client`
+# mock-ui web app (client)
 
-> TODO: description
+mock-ui web app
 
-## Usage
-
+## Install the dependencies
+```bash
+npm install
 ```
-const client = require('client');
 
-// TODO: DEMONSTRATE API
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
 ```
+
+### Lint the files
+```bash
+npm run lint
+```
+
+### Build the app for production
+```bash
+quasar build
+```
+
+### Customize the configuration
+See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
